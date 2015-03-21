@@ -1,0 +1,93 @@
+* { border: 0; margin: 0; outline: none; padding: 0; }
+html, body {
+	font-family: Arial;
+	height: 100%;
+	overflow: hidden;
+	width: 100%;
+}
+
+
+/* Intro */
+#intro {
+	border: 10px solid #FFF;
+	border-radius: 40px;
+	background-color: #000;
+	padding: 10px;
+	position: absolute;
+	width: 500px;
+	height: 400px;
+	z-index: 100;
+
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+	#intro h1 {
+		color: white;
+	}
+
+nav {
+	left: 15px;
+	position: absolute;
+	top: 15px;
+	z-index: 99;
+}
+	nav ul {
+		list-style-type: none;
+	}
+	nav svg {
+		cursor: pointer;
+	}
+	nav svg circle { transition: opacity .2s; }
+	nav svg path { transition: fill .2s; }
+	nav svg:hover circle {
+		opacity: 0;
+	}
+	nav svg:hover path {
+		fill: #FFF;
+	}
+
+
+/* User interface */
+#background {
+	background-image: url("rescources/background.jpg");
+	background-repeat: repeat-y;
+	background-size: 100% 100%;
+	height: 100%;
+	width: 100%;
+}
+	#background div {
+		height: 100%;
+		position: absolute;
+		width: 100%;
+
+		transition: all 1s;
+	}
+	#background .image {
+		display: inline-block;
+		position: relative;
+		width: 50%;
+	}
+	#background .image img {
+		left: 50%;
+		position: relative;
+		pointer-events: none;
+		top: 50%;
+
+		transform: translate(-50%, -50%);
+	}
+		#sun .image img { left: 0; }
+	#background .planet-info {
+		display: inline-block;
+		left: 50%;
+		top: 50%;
+	}
+	#background .planet-info h2, p {
+		color: white;
+	}
+
+
+/* previous, current, next */
+.prev { top: -100%; opacity: 0; }
+.current { top: 0px; opacity: 1; }
+.next { top: 100%; opacity: 0; }
