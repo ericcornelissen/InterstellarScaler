@@ -1,31 +1,89 @@
+@import url(http://fonts.googleapis.com/css?family=Noto+Sans|Hind);
+
 * { border: 0; margin: 0; outline: none; padding: 0; }
+
 html, body {
-	font-family: Arial;
 	height: 100%;
-	overflow: hidden;
 	width: 100%;
+
+	min-height: 700px;
+	min-width: 1000px;
+
+	overflow: hidden;
 }
 
+
+/* Miscellaneous */
+.deselect {
+	cursor:default;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	unselectable=on;
+	onselectstart=return false;
+	onmousedown=return false;
+}
+
+/* Text */
+h1, h2 {
+	color: #FFF;
+	font-family: "Hind";
+	line-height: 1em;
+}
+p {
+	color: #FFF;
+	font-family: "Noto Sans";
+	line-height: 1em;
+}
 
 /* Intro */
 #intro {
-	border: 10px solid #FFF;
-	border-radius: 40px;
-	background-color: #000;
-	padding: 10px;
+	left: 50%;
+	height: 200pxpx;
 	position: absolute;
-	width: 500px;
-	height: 400px;
+	top: calc(50% - 100px);
+	width: 400px;
 	z-index: 100;
 
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
+	transition: opacity .2s;
 }
 	#intro h1 {
-		color: white;
+		font-size: 48px;
+		color: #FFF;
+	}
+	#intro p {
+		line-height: 1.3em;
+		font-size: 14px;
+		margin: 10px 0 10px 0;
+	}
+	#intro input[type="quantity"] {
+		border-radius: 4px;
+		font-family: "Noto Sans";
+		margin: 10px 0 0 0;
+		padding: 3px 5px;
+		width: 295px;
+	}
+	#intro input[type="submit"] {
+		background-color: #FFF;
+		border: 1px solid #FFF;
+		border-radius: 4px;
+		font-family: "Noto Sans";
+		margin: 2px;
+		padding: 2px;
+		width: 80px;
+	}
+	#intro input[type="submit"]:hover {
+		background-color: transparent;
+		color: #FFF;
+		cursor: pointer;
+	}
+	#intro.hide {
+		opacity: 0;
 	}
 
+/* Navigation */
 nav {
 	left: 15px;
 	position: absolute;
@@ -35,8 +93,19 @@ nav {
 	nav ul {
 		list-style-type: none;
 	}
+	nav ul li {
+		margin: 0 0 2px 0;
+
+		transition: opacity .2s;
+	}
+	nav ul li.disabled {
+		opacity: 0.4;
+		pointer-events: none;
+	}
 	nav svg {
 		cursor: pointer;
+		height: 40px;
+		width: 40px;
 	}
 	nav svg circle { transition: opacity .2s; }
 	nav svg path { transition: fill .2s; }
@@ -46,7 +115,6 @@ nav {
 	nav svg:hover path {
 		fill: #FFF;
 	}
-
 
 /* User interface */
 #background {
@@ -76,18 +144,71 @@ nav {
 
 		transform: translate(-50%, -50%);
 	}
-		#sun .image img { left: 0; }
+		#sun .image img { left: calc(100% - 700px); }
+		#jupiter .image img { left: calc(100% - 700px); }
+		#saturn .image img { left: calc(100% - 700px); }
 	#background .planet-info {
 		display: inline-block;
 		left: 50%;
-		top: 50%;
+		height: 60px;
+		top: calc(50% - 30px);
+		width: 50%;
+
+		transition: opacity .5s;
 	}
-	#background .planet-info h2, p {
-		color: white;
+	#background .planet-info h2 {
+		font-size: 44px;
+		height: 40px;
 	}
+	#background .planet-info p {
+		font-size: 20px;
+		height: 20px;
+	}
+	#background .hide {
+		opacity: 0;
+	}
+
 
 
 /* previous, current, next */
 .prev { top: -100%; opacity: 0; }
 .current { top: 0px; opacity: 1; }
 .next { top: 100%; opacity: 0; }
+
+
+
+
+
+
+
+
+
+
+
+
+/* Menu */
+menu {
+	z-index: 101;
+	width: 200px;
+	left: -200px;
+	height: 100%;
+	background-color: #000;
+	display: inline-block;
+	position: absolute;
+
+	transition: left .3s;
+}
+	menu.show {
+		left: 0;
+	}
+	menu ul {
+		margin: 10px;
+	}
+	menu ul li {
+		color: white;
+		font-family: "Noto Sans";
+		margin: 1px;
+	}
+	menu ul li:hover {
+		cursor: pointer;
+	}

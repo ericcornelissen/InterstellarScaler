@@ -10,48 +10,76 @@
 	</head>
 
 	<body>
-		<div id="intro">
-			<h1>Interstellar Scaler</h1>
-			<input id="weight" type="quantity" placeholder="What do you weight?" />
-			<input type="submit" value="Let's go!" onclick="_setWeigth();">
-		</div>
+		<menu id="menu">
+			<ul>
+				<li onclick="$('#menu').removeClass('show');">Close menu</li>
+				<li onclick="_setPlanets(1);">Sun</li>
+				<li onclick="_setPlanets(2);">Mercury</li>
+				<li onclick="_setPlanets(3);">Venus</li>
+				<li onclick="_setPlanets(4);">Earth</li>
+				<li onclick="_setPlanets(5);">Moon</li>
+				<li onclick="_setPlanets(6);">Mars</li>
+				<li onclick="_setPlanets(7);">Jupiter</li>
+				<li onclick="_setPlanets(8);">Saturn</li>
+				<li onclick="_setPlanets(9);">Uranus</li>
+				<li onclick="_setPlanets(10);">Neptune</li>
+				<li onclick="_setPlanets(11);">Pluto</li>
+			</ul>
+		</menu>
 
 		<nav>
-		<ul>
-			<li>
-				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve" onclick="_Prev();">
-					<g class='test' enable-background="new">
-						<circle fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" cx="19.994" cy="20.001" r="20.004"></circle>
-					</g>
-					<g enable-background="new">
-						<path fill-rule="evenodd" clip-rule="evenodd" d="M25.703,18.274l-4.902-4.884c-0.026-0.034-0.051-0.07-0.083-0.101
-							c-0.253-0.252-0.605-0.34-0.93-0.269c-0.048,0.009-0.093,0.025-0.138,0.041c-0.009,0.003-0.018,0.005-0.027,0.008
-							c-0.163,0.062-0.303,0.167-0.412,0.3l-4.916,4.898c-0.394,0.393-0.394,1.029,0,1.422c0.394,0.393,1.049,0.393,1.443,0
-							l3.276-3.249v10.56c0,0.549,0.432,0.993,0.983,0.993s0.983-0.445,0.983-0.993V16.41l3.297,3.287c0.394,0.393,1.032,0.393,1.426,0
-							C26.098,19.303,26.097,18.667,25.703,18.274z">
-						</path>
-					</g>
-				</svg>
-			</li>
-			<li>
-				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve" onclick="_Next();">
-					<g enable-background="new">
-						<circle fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" cx="19.994" cy="20.001" r="20.004"></circle>
-					</g>
-					<g enable-background="new">
-						<path fill-rule="evenodd" clip-rule="evenodd" d="M25.705,21.311c-0.394-0.393-1.049-0.393-1.443,0l-3.276,3.249v-10.56
-							c0-0.549-0.432-0.993-0.983-0.993c-0.551,0-0.983,0.445-0.983,0.993V24.59l-3.297-3.287c-0.394-0.393-1.032-0.393-1.426,0
-							c-0.394,0.393-0.393,1.029,0.001,1.422l4.902,4.884c0.026,0.034,0.051,0.07,0.083,0.101c0.253,0.252,0.605,0.34,0.93,0.269
-							c0.048-0.009,0.093-0.025,0.138-0.041c0.009-0.003,0.018-0.005,0.027-0.008c0.163-0.062,0.303-0.167,0.412-0.3l4.916-4.898
-							C26.099,22.34,26.099,21.703,25.705,21.311z">
-						</path>
-					</g>
-				</svg>
-			</li>
-		</ul>
+			<ul>
+				<li class="up disabled">
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve" onclick="_Prev();">
+						<g class='test' enable-background="new">
+							<circle fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" cx="19.994" cy="20.001" r="20.004"></circle>
+						</g>
+						<g enable-background="new">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M25.703,18.274l-4.902-4.884c-0.026-0.034-0.051-0.07-0.083-0.101
+								c-0.253-0.252-0.605-0.34-0.93-0.269c-0.048,0.009-0.093,0.025-0.138,0.041c-0.009,0.003-0.018,0.005-0.027,0.008
+								c-0.163,0.062-0.303,0.167-0.412,0.3l-4.916,4.898c-0.394,0.393-0.394,1.029,0,1.422c0.394,0.393,1.049,0.393,1.443,0
+								l3.276-3.249v10.56c0,0.549,0.432,0.993,0.983,0.993s0.983-0.445,0.983-0.993V16.41l3.297,3.287c0.394,0.393,1.032,0.393,1.426,0
+								C26.098,19.303,26.097,18.667,25.703,18.274z">
+							</path>
+						</g>
+					</svg>
+				</li>
+				<li class="down disabled">
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve" onclick="_Next();">
+						<g enable-background="new">
+							<circle fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" cx="19.994" cy="20.001" r="20.004"></circle>
+						</g>
+						<g enable-background="new">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M25.705,21.311c-0.394-0.393-1.049-0.393-1.443,0l-3.276,3.249v-10.56
+								c0-0.549-0.432-0.993-0.983-0.993c-0.551,0-0.983,0.445-0.983,0.993V24.59l-3.297-3.287c-0.394-0.393-1.032-0.393-1.426,0
+								c-0.394,0.393-0.393,1.029,0.001,1.422l4.902,4.884c0.026,0.034,0.051,0.07,0.083,0.101c0.253,0.252,0.605,0.34,0.93,0.269
+								c0.048-0.009,0.093-0.025,0.138-0.041c0.009-0.003,0.018-0.005,0.027-0.008c0.163-0.062,0.303-0.167,0.412-0.3l4.916-4.898
+								C26.099,22.34,26.099,21.703,25.705,21.311z">
+							</path>
+						</g>
+					</svg>
+				</li>
+				<li class="menu disabled">
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve" onclick="$('#menu').addClass('show');">
+						<g enable-background="new">
+							<circle fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" cx="19.994" cy="20.001" r="20.004"></circle>
+						</g>
+						<g enable-background="new">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M13,17h14v-4h-14V17z M13,22h14v-4h-14V22z M13,27h14v-4h-14V27z"></path>
+						</g>
+					</svg>
+				</li>
+			</ul>
 		</nav>
 
-		<div id="background">
+		<div id="intro">
+			<h1>Interstellar Scaler</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet laoreet purus, a pellentesque risus. Phasellus malesuada ipsum arcu, quis iaculis orci porttitor sit amet. Donec libero dolor, ultrices ut euismod id, blandit sed felis.</p>
+			<input id="weight" type="quantity" placeholder="What do you weight?" />
+			<input type="submit" value="Let's go!" onclick="_setWeigth();" />
+		</div>
+
+		<div id="background" class="deselect">
 			<div id="sun" class="prev">
 				<div class="image"><img src="rescources/sun.png"></div>
 				<div class="planet-info">
@@ -75,15 +103,57 @@
 			</div>
 			<div id="earth" class="current">
 				<div class="image"><img src="rescources/earth.png"></div>
-				<div class="planet-info">
+				<div class="planet-info hide">
 					<h2>Earth</h2>
-					<p><span class="weight"></span> kg</p>
+					<p><span class="weight">55</span> kg</p>
 				</div>
 			</div>
 			<div id="moon" class="next">
 				<div class="image"><img src="rescources/moon.png"></div>
 				<div class="planet-info">
 					<h2>Moon</h2>
+					<p><span class="weight"></span> kg</p>
+				</div>
+			</div>
+			<div id="mars" class="next">
+				<div class="image"><img src="rescources/mars.png"></div>
+				<div class="planet-info">
+					<h2>Mars</h2>
+					<p><span class="weight"></span> kg</p>
+				</div>
+			</div>
+			<div id="jupiter" class="next">
+				<div class="image"><img src="rescources/jupiter.png"></div>
+				<div class="planet-info">
+					<h2>Jupiter</h2>
+					<p><span class="weight"></span> kg</p>
+				</div>
+			</div>
+			<div id="saturn" class="next">
+				<div class="image"><img src="rescources/saturn.png"></div>
+				<div class="planet-info">
+					<h2>Saturn</h2>
+					<p><span class="weight"></span> kg</p>
+				</div>
+			</div>
+			<div id="uranus" class="next">
+				<div class="image"><img src="rescources/uranus.png"></div>
+				<div class="planet-info">
+					<h2>Uranus</h2>
+					<p><span class="weight"></span> kg</p>
+				</div>
+			</div>
+			<div id="neptune" class="next">
+				<div class="image"><img src="rescources/neptune.png"></div>
+				<div class="planet-info">
+					<h2>Neptune</h2>
+					<p><span class="weight"></span> kg</p>
+				</div>
+			</div>
+			<div id="pluto" class="next">
+				<div class="image"><img src="rescources/pluto.png"></div>
+				<div class="planet-info">
+					<h2>Pluto</h2>
 					<p><span class="weight"></span> kg</p>
 				</div>
 			</div>
