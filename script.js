@@ -1,4 +1,4 @@
-var __IS_cur_planetID = 4; // Earth
+var __IS_cur_planetID = -1;
 
 var __IS_acc_Sun = 274.00;
 var __IS_acc_Mercury = 3.70;
@@ -11,6 +11,20 @@ var __IS_acc_Saturn = 10.50;
 var __IS_acc_Uranus = 9.00;
 var __IS_acc_Neptune = 11.20;
 var __IS_acc_Pluto = 0.77;
+
+
+$(document).ready(function() {
+	$("body").on("DOMMouseScroll mousewheel", function (event) {
+		if (__IS_cur_planetID != -1) {
+			if (event.originalEvent.detail > 0 || event.originalEvent.wheelDelta < 0 ) {
+				_Next()
+			} else {
+				_Prev()
+			}
+		}
+	});
+});
+
 
 function _setWeigth() {
 	var original = document.getElementById('weight').value;
@@ -46,6 +60,8 @@ function _setWeigth() {
 
 	$("#intro").addClass("hide");
 	$("#earth .planet-info").removeClass("hide");
+
+	__IS_cur_planetID = 4;
 }
 
 function _Next() {
