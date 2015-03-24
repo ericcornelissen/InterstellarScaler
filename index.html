@@ -5,7 +5,8 @@
 		<title>Interstellar Scaler</title>
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script type="text/javascript" src="script.js"></script>
+		<script type="text/javascript" src="scripts/interstellarScaler.js"></script>
+		<script type="text/javascript" src="scripts/script.js"></script>
 		<link type="text/css" href="stylesheet.css" rel="stylesheet" />
 	</head>
 
@@ -19,19 +20,20 @@
 				<li onclick="_setPlanets(4);">Earth</li>
 				<li onclick="_setPlanets(5);">Moon</li>
 				<li onclick="_setPlanets(6);">Mars</li>
-				<li onclick="_setPlanets(7);">Jupiter</li>
-				<li onclick="_setPlanets(8);">Saturn</li>
-				<li onclick="_setPlanets(9);">Uranus</li>
-				<li onclick="_setPlanets(10);">Neptune</li>
-				<li onclick="_setPlanets(11);">Pluto</li>
+				<li onclick="_setPlanets(7);">Ceres</li>
+				<li onclick="_setPlanets(8);">Jupiter</li>
+				<li onclick="_setPlanets(9);">Saturn</li>
+				<li onclick="_setPlanets(10);">Uranus</li>
+				<li onclick="_setPlanets(11);">Neptune</li>
+				<li onclick="_setPlanets(12);">Pluto</li>
 			</ul>
 		</menu>
 
 		<nav>
 			<ul>
-				<li class="up disabled">
-					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve" onclick="_Prev();">
-						<g class='test' enable-background="new">
+				<li class="up disabled" onclick="_Prev();">
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+						<g enable-background="new">
 							<circle fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" cx="19.994" cy="20.001" r="20.004"></circle>
 						</g>
 						<g enable-background="new">
@@ -44,8 +46,8 @@
 						</g>
 					</svg>
 				</li>
-				<li class="down disabled">
-					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve" onclick="_Next();">
+				<li class="down disabled" onclick="_Next();">
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
 						<g enable-background="new">
 							<circle fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" cx="19.994" cy="20.001" r="20.004"></circle>
 						</g>
@@ -59,8 +61,8 @@
 						</g>
 					</svg>
 				</li>
-				<li class="menu disabled">
-					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve" onclick="$('#menu').addClass('show');">
+				<li class="menu disabled" onclick="$('#menu').addClass('show');">
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
 						<g enable-background="new">
 							<circle fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" cx="19.994" cy="20.001" r="20.004"></circle>
 						</g>
@@ -74,12 +76,12 @@
 
 		<div id="intro">
 			<h1>Interstellar Scaler</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet laoreet purus, a pellentesque risus. Phasellus malesuada ipsum arcu, quis iaculis orci porttitor sit amet. Donec libero dolor, ultrices ut euismod id, blandit sed felis.</p>
-			<input id="weight" type="quantity" placeholder="What do you weight?" />
-			<input type="submit" value="Let's go!" onclick="_setWeigth();" />
+			<p>Dear earthling! Welcome to the Interstellar Scaler, with this machine you can find out what you'll weigh on other planets in your solar system (and the sun and pluto). Simply provide your weight on earth below and explore your solar system!</p>
+			<input id="weight" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="What do you weigh?"></input>
+			<input type="submit" value="Explore!" onclick="_setWeigth();"/>
 		</div>
 
-		<div id="background" class="deselect">
+		<div id="planets" class="deselect">
 			<div id="sun" class="prev">
 				<div class="image"><img class="big" src="rescources/sun.png"></div>
 				<div class="planet-info">
@@ -88,7 +90,7 @@
 				</div>
 			</div>
 			<div id="mercury" class="prev">
-				<div class="image"><img class="tiny" src="rescources/mercury.png"></div>
+				<div class="image"><img class="small" src="rescources/mercury.png"></div>
 				<div class="planet-info">
 					<h2>Mercury</h2>
 					<p><span class="weight"></span> kg</p>
@@ -109,16 +111,23 @@
 				</div>
 			</div>
 			<div id="moon" class="next">
-				<div class="image"><img class="tiny" src="rescources/moon.png"></div>
+				<div class="image"><img class="small" src="rescources/moon.png"></div>
 				<div class="planet-info">
 					<h2>Moon</h2>
 					<p><span class="weight"></span> kg</p>
 				</div>
 			</div>
 			<div id="mars" class="next">
-				<div class="image"><img class="tiny" src="rescources/mars.png"></div>
+				<div class="image"><img class="small" src="rescources/mars.png"></div>
 				<div class="planet-info">
 					<h2>Mars</h2>
+					<p><span class="weight"></span> kg</p>
+				</div>
+			</div>
+			<div id="ceres" class="next">
+				<div class="image"><img class="small" src="rescources/ceres.png"></div>
+				<div class="planet-info">
+					<h2>Ceres</h2>
 					<p><span class="weight"></span> kg</p>
 				</div>
 			</div>
@@ -151,12 +160,16 @@
 				</div>
 			</div>
 			<div id="pluto" class="next">
-				<div class="image"><img class="tiny" src="rescources/pluto.png"></div>
+				<div class="image"><img class="small" src="rescources/pluto.png"></div>
 				<div class="planet-info">
 					<h2>Pluto</h2>
 					<p><span class="weight"></span> kg</p>
 				</div>
 			</div>
+		</div>
+
+		<div id="grid" class="hide">
+			<h1>Interstellar Scaler</h1>
 		</div>
 	</body>
 </html>

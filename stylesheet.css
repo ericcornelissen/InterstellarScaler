@@ -4,13 +4,14 @@
 
 
 html, body {
+	background-image: url("rescources/background.jpg");
+	background-repeat: repeat-y;
+	background-size: 100% 100%;
+
 	height: 100%;
-	width: 100%;
-
-	min-height: 700px;
+	min-height: 520px;
 	min-width: 1100px;
-
-	/* overflow: hidden; */
+	width: 100%;
 }
 
 
@@ -59,7 +60,7 @@ p {
 		font-size: 14px;
 		margin: 10px 0 10px 0;
 	}
-	#intro input[type="quantity"] {
+	#intro input[type="text"] {
 		border-radius: 4px;
 		font-family: "Noto Sans";
 		margin: 10px 0 0 0;
@@ -82,13 +83,13 @@ p {
 	}
 	#intro.hide {
 		opacity: 0;
+		display: hidden;
 	}
 
 /* Navigation */
 nav {
-	left: 15px;
-	position: absolute;
-	top: 15px;
+	margin: 15px 0 0 15px;
+	position: fixed;
 	z-index: 99;
 }
 	nav ul {
@@ -117,42 +118,43 @@ nav {
 		fill: #FFF;
 	}
 
-/* User interface */
-#background {
-	background-image: url("rescources/background.jpg");
-	background-repeat: repeat-y;
-	background-size: 100% 100%;
+/* User interface, Planets */
+#planets {
 	height: 100%;
-	min-height: 700px;
+	min-height: 520px;
 	min-width: 1100px;
 	overflow: hidden;
 	position: absolute;
 	width: 100%;
+
+	transition: all .2s;
 }
-	#background div {
+	#planets .hide {
+		opacity: 0;
+	}
+	#planets div {
 		height: 100%;
 		position: absolute;
 		width: 100%;
 
 		transition: all 1s;
 	}
-	#background .image {
+	#planets .image {
 		min-width: 600px;
 		position: relative;
 		width: 50%;
 	}
-	#background .image img {
+	#planets .image img {
 		position: relative;
 		pointer-events: none;
 		top: 50%;
 
 		transform: translate(-50%, -50%);
 	}
-		#background img.big { left: calc(100% - 700px); }
-		#background img.medium { left: calc(100% - 450px); }
-		#background img.small { left: calc(100% - 325px); }
-		#background img.tiny { left: 50%; }
-	#background .planet-info {
+		#planets img.big { left: calc(100% - 700px); }
+		#planets img.medium { left: calc(100% - 450px); }
+		#planets img.small { left: 50%; }
+	#planets .planet-info {
 		display: inline-block;
 		left: 50%;
 		height: 60px;
@@ -161,24 +163,32 @@ nav {
 
 		transition: opacity .5s;
 	}
-	#background .planet-info h2 {
+	#planets .planet-info h2 {
 		font-size: 44px;
 		height: 40px;
 	}
-	#background .planet-info p {
+	#planets .planet-info p {
 		font-size: 20px;
 		height: 20px;
 	}
-	#background .hide {
+
+	/* previous, current, next */
+	.prev { top: -100%; opacity: 0; }
+	.current { top: 0px; opacity: 1; }
+	.next { top: 100%; opacity: 0; }
+
+/* User interface, Grid */
+#grid {
+	height: 100%;
+	margin: 0 15%;
+	width: 70%;
+
+	transition: all .2s;
+}
+	#grid.hide {
 		opacity: 0;
+		display: hidden;
 	}
-
-
-
-/* previous, current, next */
-.prev { top: -100%; opacity: 0; }
-.current { top: 0px; opacity: 1; }
-.next { top: 100%; opacity: 0; }
 
 
 
