@@ -154,29 +154,76 @@
 		<div id="grid" class="hide">
 			<div class="main-tile">
 				<h1>Interstellar Scaler</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non ultricies tortor. Donec vel nisl blandit, scelerisque eros sed, vulputate dolor. Praesent sodales eget magna non commodo. Mauris cursus sollicitudin est, non commodo turpis rhoncus at. Quisque erat eros</p>
+				<p>This project by <a href="https://github.com/ericcornelissen" target="_blank">Eric Cornelissen</a> is a simple webapp that you can use to find out what you'll weigh on another planet! Feel free to use it for whatever you want and enjoy your stay on this site. If you're a geek like me, you can check out the source code on <a href="https://github.com/ericcornelissen/InterstellarScaler" target="_blank">Github</a>.</p>
 
 				<h3>Share this site!</h3>
-				<a href="https://www.facebook.com/dialog/feed?app_id=1557774461155978
-					&display=popup&caption=Find%20out%20what%20you%20weigh%20on%20other%20planets! 
-					&link=https%3A%2F%2Fericcornelissen.github.io%2FInterstellarScaler%2F
-					&redirect_uri=https://ericcornelissen.github.io/InterstellarScaler/
-					&picture=http://i.imgur.com/kkZ9WcH.png" class="share" target="_blank">Share</a>
-				<a href="//www.reddit.com/submit" class="share" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false">Reddit this</a>
-				<a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fbit.ly%2F1Cas5as&text=Check%20out%20this%20cool%20Interstellar%20Scaler!" class="share">Tweet</a>
+				<div id="share">
+					<div class="share">
+						<img src="rescources/icons/facebook.png"/>
+						<a href="https://www.facebook.com/dialog/feed?app_id=1557774461155978
+							&display=popup&caption=Find%20out%20what%20you%20weigh%20on%20other%20planets! 
+							&link=https%3A%2F%2Fericcornelissen.github.io%2FInterstellarScaler%2F
+							&redirect_uri=https://ericcornelissen.github.io/InterstellarScaler/
+							&picture=http://i.imgur.com/kkZ9WcH.png" class="share" target="_blank">Share</a>
+					</div>
+					<div class="share">
+						<img src="rescources/icons/twitter.png"/>
+						<a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fbit.ly%2F1Cas5as&text=Check%20out%20this%20cool%20Interstellar%20Scaler!" class="share" target="_blank">Tweet</a>
+					</div>
+					<div class="share">
+						<img src="rescources/icons/reddit.png"/>
+						<a href="//www.reddit.com/submit" class="share" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false">Reddit this</a>
+					</div>
+				</div>
 			</div>
-			<div class="tile" onclick="_setPlanets(1); _toggleGrid();"><p>Sun</p></div>
-			<div class="tile" onclick="_setPlanets(2); _toggleGrid();"><p>Mercury</p></div>
-			<div class="tile" onclick="_setPlanets(3); _toggleGrid();"><p>Venus</p></div>
-			<div class="tile" onclick="_setPlanets(4); _toggleGrid();"><p>Earth</p></div>
-			<div class="tile" onclick="_setPlanets(5); _toggleGrid();"><p>Moon</p></div>
-			<div class="tile" onclick="_setPlanets(6); _toggleGrid();"><p>Mars</p></div>
-			<div class="tile" onclick="_setPlanets(7); _toggleGrid();"><p>Ceres</p></div>
-			<div class="tile" onclick="_setPlanets(8); _toggleGrid();"><p>Jupiter</p></div>
-			<div class="tile" onclick="_setPlanets(9); _toggleGrid();"><p>Saturn</p></div>
-			<div class="tile" onclick="_setPlanets(10); _toggleGrid();"><p>Uranus</p></div>
-			<div class="tile" onclick="_setPlanets(11); _toggleGrid();"><p>Neptune</p></div>
-			<div class="tile" onclick="_setPlanets(12); _toggleGrid();"><p>Pluto</p></div>
+			<div class="tile" onclick="_toggleGrid();">
+				<div class="image"><img src="rescources/thumbnails/sun.png"></div>
+				<p>Sun</p>
+			</div>
+			<div class="tile" onclick="_toggleGrid(); _setPlanets(2);">
+				<div class="image"><img src="rescources/thumbnails/mercury.png"></div>
+				<p>Mercury</p>
+			</div>
+			<div class="tile" onclick="_toggleGrid(); _setPlanets(3);">
+				<div class="image"><img src="rescources/thumbnails/venus.png"></div>
+				<p>Venus</p>
+			</div>
+			<div class="tile" onclick="_toggleGrid(); _setPlanets(4);">
+				<div class="image"><img src="rescources/thumbnails/earth.png"></div>
+				<p>Earth</p>
+			</div>
+			<div class="tile" onclick="_toggleGrid(); _setPlanets(5);">
+				<div class="image"><img src="rescources/thumbnails/moon.png"></div>
+				<p>Moon</p>
+			</div>
+			<div class="tile" onclick="_toggleGrid(); _setPlanets(6);">
+				<div class="image"><img src="rescources/thumbnails/mars.png"></div>
+				<p>Mars</p>
+			</div>
+			<div class="tile" onclick="_toggleGrid(); _setPlanets(7);">
+				<div class="image"><img src="rescources/thumbnails/ceres.png"></div>
+				<p>Ceres</p>
+			</div>
+			<div class="tile" onclick="_toggleGrid(); _setPlanets(8);">
+				<div class="image"><img src="rescources/thumbnails/jupiter.png"></div>
+				<p>Jupiter</p>
+			</div>
+			<div class="tile" onclick="_toggleGrid(); _setPlanets(9);">
+				<div class="image"><img src="rescources/thumbnails/saturn.png"></div>
+				<p>Saturn</p>
+				</div>
+			<div class="tile" onclick="_toggleGrid(); _setPlanets(10);">
+				<div class="image"><img src="rescources/thumbnails/uranus.png"></div>
+				<p>Uranus</p>
+			</div>
+			<div class="tile" onclick="_toggleGrid(); _setPlanets(11);">
+				<div class="image"><img src="rescources/thumbnails/neptune.png"></div>
+				<p>Neptune</p>
+			</div>
+			<div class="tile" onclick="_toggleGrid(); _setPlanets(12);">
+				<div class="image"><img src="rescources/thumbnails/pluto.png"></div>
+				<p>Pluto</p>
+			</div>
 		</div>
 	</body>
 </html>

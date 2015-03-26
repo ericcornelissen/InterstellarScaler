@@ -32,6 +32,7 @@ html, body {
 	visibility: hidden;
 }
 
+
 /* Text */
 h1, h2, h3 {
 	color: #FFF;
@@ -39,6 +40,7 @@ h1, h2, h3 {
 	line-height: 1em;
 }
 p, a, li {
+		line-height: 1.3em;
 	color: #FFF;
 	font-family: "Noto Sans";
 	line-height: 1em;
@@ -60,7 +62,6 @@ p, a, li {
 		color: #FFF;
 	}
 	#intro p {
-		line-height: 1.3em;
 		font-size: 14px;
 		margin: 10px 0 10px 0;
 	}
@@ -187,18 +188,17 @@ nav {
 
 	transition: opacity .2s;
 }
-	.main-tile {
-		display: block;
-		float: left;
-		height: 50%;
-		min-height: 225px;
-		min-width: 400px;
-		width: 50%;
-		margin: 0;
-	}
+.main-tile {
+	display: block;
+	float: left;
+	height: 49%;
+	min-height: 225px;
+	min-width: 400px;
+	width: 50%;
+}
 	.main-tile h1 {
 		color: #000;
-		padding: 40px 0 10px 0;
+		padding: 40px 0 0 0;
 		text-align: center;
 		width: 100%;
 	}
@@ -206,30 +206,74 @@ nav {
 		color: #000;
 		width: 100%;
 		text-align: center;
-		padding: 10px 0;
 	}
 	.main-tile p {
 		color: #000;
+		line-height: 1.3em;
+		padding: 10px 50px 20px 50px;
 	}
 	.main-tile a {
-		color: #000;
+		color: #777;
 		text-decoration: none;
 	}
 	.main-tile a:hover {
-		color: #CCC;
+		color: #000;
 	}
-	.tile {
+	#share {
+		width: 260px;
+		margin: 10px auto 0 auto;
+	}
+	#share div {
 		cursor: pointer;
-		display: block;
-		float: left;
-		height: 25%;
-		width: 25%;
+		display: inline-block;
+		margin: 0 10px 0 0;
+		opacity: .6;
 	}
+	#share a {
+		color: #777;
+		text-decoration: none;
+	}
+	#share div img {
+		height: 13px;
+		width: 13px;
+	}
+	#share div:hover {
+		opacity: 1;
+	}
+.tile {
+	cursor: pointer;
+	display: block;
+	float: left;
+	height: 25%;
+	min-height: 125px;
+	min-width: 200px;
+	opacity: .5;
+	position: relative;
+	width: 25%;
+
+	transition: opacity .1s;
+}
 	.tile:hover {
-		background-color: #CCC;
+		opacity: 1;
 	}
 	.tile p {
-		width: 100%;
 		color: #000;
+		height: 100%;
+		position: absolute;
 		text-align: center;
+		vertical-align: middle;
+		top: 0;
+		width: 100%;
+	}
+	.tile .image {
+		display: inline-block;
+		overflow: hidden;
+		position: relative;
+		max-height: 100%;
+	}
+	.tile .image img {
+		pointer-events: none;
+		position: relative;
+
+		transform: translate(-50%, -10%);
 	}
