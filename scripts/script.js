@@ -23,8 +23,8 @@ function _toggleGrid() {
 
 		__IS_cur_page = 2;
 	} else {
-		$('#planets').removeClass('hide');
-		$('#grid').addClass('hide');
+		$("#planets").removeClass("hide");
+		$("#grid").addClass("hide");
 		if (__IS_cur_planetID != 1) {
 			$("ul li.up").removeClass("disabled");
 		}
