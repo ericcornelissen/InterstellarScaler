@@ -1,8 +1,10 @@
-var __IS_cur_planetID = -1;
+var __IS_cur_planetID = 4; // Earth
+var __IS_cur_page = 0;
 
 $(document).ready(function() {
+	_setWeigth();
 	$("body").on("DOMMouseScroll mousewheel", function (event) {
-		if (__IS_cur_planetID != -1) {
+		if (__IS_cur_page == 1) {
 			if (event.originalEvent.detail > 0 || event.originalEvent.wheelDelta < 0 ) {
 				_Next()
 			} else {
@@ -11,6 +13,28 @@ $(document).ready(function() {
 		}
 	});
 });
+
+function _toggleGrid() {
+	if (__IS_cur_page == 1) {
+		$('#planets').addClass('hide');
+		$('#grid').removeClass('hide');
+		$('ul li.up').addClass('disabled');
+		$('ul li.down').addClass('disabled');
+
+		__IS_cur_page = 2;
+	} else {
+		$('#planets').removeClass('hide');
+		$('#grid').addClass('hide');
+		if (__IS_cur_planetID != 1) {
+			$("ul li.up").removeClass("disabled");
+		}
+		if (__IS_cur_planetID != 12) {
+			$("ul li.down").removeClass("disabled");
+		}
+
+		__IS_cur_page = 1;
+	}
+}
 
 function _setWeigth() {
 	var original = parseInt(document.getElementById('weight').value);
@@ -30,14 +54,15 @@ function _setWeigth() {
 
 		$("ul li.up").removeClass("disabled");
 		$("ul li.down").removeClass("disabled");
-		$("ul li.menu").removeClass("disabled");
 		$("ul li.grid").removeClass("disabled");
 
 
 		$("#intro").addClass("hide");
 		$("#earth .planet-info").removeClass("hide");
 
-		__IS_cur_planetID = 4;
+		__IS_cur_page = 1;
+	} else {
+		$("#weight").addClass("error");
 	}
 }
 function _setPlanets(ID) {
@@ -45,13 +70,13 @@ function _setPlanets(ID) {
 		// Hide current planet
 		if (ID > __IS_cur_planetID) {
 			$(".current").removeClass("current").addClass("prev");
-		$("body").stop().animate({ "background-positionY": "-=100px" }, 1000);
+			$("body").stop().animate({ "background-positionY": "-=100px" }, 1000);
 		} else if (ID < __IS_cur_planetID) {
 			$(".current").removeClass("current").addClass("next");
-		$("body").stop().animate({ "background-positionY": "+=100px" }, 1000);
+			$("body").stop().animate({ "background-positionY": "+=100px" }, 1000);
 		}
 
-		// Enable 
+		// Enable
 		if (__IS_cur_planetID == 1) {
 			$("ul li.up").removeClass("disabled");
 		} else if (__IS_cur_planetID == 12) {
