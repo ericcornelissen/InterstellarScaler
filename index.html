@@ -11,24 +11,6 @@
 	</head>
 
 	<body>
-		<menu id="menu">
-			<ul>
-				<li onclick="$('#menu').removeClass('show');">Close menu</li>
-				<li onclick="_setPlanets(1);">Sun</li>
-				<li onclick="_setPlanets(2);">Mercury</li>
-				<li onclick="_setPlanets(3);">Venus</li>
-				<li onclick="_setPlanets(4);">Earth</li>
-				<li onclick="_setPlanets(5);">Moon</li>
-				<li onclick="_setPlanets(6);">Mars</li>
-				<li onclick="_setPlanets(7);">Ceres</li>
-				<li onclick="_setPlanets(8);">Jupiter</li>
-				<li onclick="_setPlanets(9);">Saturn</li>
-				<li onclick="_setPlanets(10);">Uranus</li>
-				<li onclick="_setPlanets(11);">Neptune</li>
-				<li onclick="_setPlanets(12);">Pluto</li>
-			</ul>
-		</menu>
-
 		<nav>
 			<ul>
 				<li class="up disabled" onclick="_Prev();">
@@ -61,13 +43,14 @@
 						</g>
 					</svg>
 				</li>
-				<li class="menu disabled" onclick="$('#menu').addClass('show');">
-					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+				<li class="grid disabled" onclick="_toggleGrid();">
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
 						<g enable-background="new">
 							<circle fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" cx="19.994" cy="20.001" r="20.004"></circle>
 						</g>
 						<g enable-background="new">
-							<path fill-rule="evenodd" clip-rule="evenodd" d="M13,17h14v-4h-14V17z M13,22h14v-4h-14V22z M13,27h14v-4h-14V27z"></path>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M13,17h4v-4h-4V17z M13,22h4v-4h-4V22z M13,27h4v-4h-4V27z M18,17h4v-4h-4V17z
+								M18,22h4v-4h-4V22z M18,27h4v-4h-4V27z M23,13v4h4v-4H23z M23,22h4v-4h-4V22z M23,27h4v-4h-4V27z"></path>
 						</g>
 					</svg>
 				</li>
@@ -77,90 +60,90 @@
 		<div id="intro">
 			<h1>Interstellar Scaler</h1>
 			<p>Dear earthling! Welcome to the Interstellar Scaler, with this machine you can find out what you'll weigh on other planets in your solar system (and the sun and pluto). Simply provide your weight on earth below and explore your solar system!</p>
-			<input id="weight" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="What do you weigh?"></input>
+			<input value="12" id="weight" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="What do you weigh?"></input>
 			<input type="submit" value="Explore!" onclick="_setWeigth();"/>
 		</div>
 
 		<div id="planets" class="deselect">
 			<div id="sun" class="prev">
-				<div class="image"><img class="big" src="rescources/sun.png"></div>
+				<div class="image"><img class="big" src="rescources/planets/sun.png"></div>
 				<div class="planet-info">
 					<h2>Sun</h2>
 					<p><span class="weight"></span> kg</p>
 				</div>
 			</div>
 			<div id="mercury" class="prev">
-				<div class="image"><img class="small" src="rescources/mercury.png"></div>
+				<div class="image"><img class="small" src="rescources/planets/mercury.png"></div>
 				<div class="planet-info">
 					<h2>Mercury</h2>
 					<p><span class="weight"></span> kg</p>
 				</div>
 			</div>
 			<div id="venus" class="prev">
-				<div class="image"><img class="small" src="rescources/venus.png"></div>
+				<div class="image"><img class="small" src="rescources/planets/venus.png"></div>
 				<div class="planet-info">
 					<h2>Venus</h2>
 					<p><span class="weight"></span> kg</p>
 				</div>
 			</div>
 			<div id="earth" class="current">
-				<div class="image"><img class="small" src="rescources/earth.png"></div>
+				<div class="image"><img class="small" src="rescources/planets/earth.png"></div>
 				<div class="planet-info hide">
 					<h2>Earth</h2>
 					<p><span class="weight">55</span> kg</p>
 				</div>
 			</div>
 			<div id="moon" class="next">
-				<div class="image"><img class="small" src="rescources/moon.png"></div>
+				<div class="image"><img class="small" src="rescources/planets/moon.png"></div>
 				<div class="planet-info">
 					<h2>Moon</h2>
 					<p><span class="weight"></span> kg</p>
 				</div>
 			</div>
 			<div id="mars" class="next">
-				<div class="image"><img class="small" src="rescources/mars.png"></div>
+				<div class="image"><img class="small" src="rescources/planets/mars.png"></div>
 				<div class="planet-info">
 					<h2>Mars</h2>
 					<p><span class="weight"></span> kg</p>
 				</div>
 			</div>
 			<div id="ceres" class="next">
-				<div class="image"><img class="small" src="rescources/ceres.png"></div>
+				<div class="image"><img class="small" src="rescources/planets/ceres.png"></div>
 				<div class="planet-info">
 					<h2>Ceres</h2>
 					<p><span class="weight"></span> kg</p>
 				</div>
 			</div>
 			<div id="jupiter" class="next">
-				<div class="image"><img class="big" src="rescources/jupiter.png"></div>
+				<div class="image"><img class="big" src="rescources/planets/jupiter.png"></div>
 				<div class="planet-info">
 					<h2>Jupiter</h2>
 					<p><span class="weight"></span> kg</p>
 				</div>
 			</div>
 			<div id="saturn" class="next">
-				<div class="image"><img class="big" src="rescources/saturn.png"></div>
+				<div class="image"><img class="big" src="rescources/planets/saturn.png"></div>
 				<div class="planet-info">
 					<h2>Saturn</h2>
 					<p><span class="weight"></span> kg</p>
 				</div>
 			</div>
 			<div id="uranus" class="next">
-				<div class="image"><img class="medium" src="rescources/uranus.png"></div>
+				<div class="image"><img class="medium" src="rescources/planets/uranus.png"></div>
 				<div class="planet-info">
 					<h2>Uranus</h2>
 					<p><span class="weight"></span> kg</p>
 				</div>
 			</div>
 			<div id="neptune" class="next">
-				<div class="image"><img class="medium" src="rescources/neptune.png"></div>
+				<div class="image"><img class="medium" src="rescources/planets/neptune.png"></div>
 				<div class="planet-info">
 					<h2>Neptune</h2>
 					<p><span class="weight"></span> kg</p>
 				</div>
 			</div>
 			<div id="pluto" class="next">
-				<div class="image"><img class="small" src="rescources/pluto.png"></div>
+				<div class="image"><img class="small" src="rescources/planets/pluto.png"></div>
 				<div class="planet-info">
 					<h2>Pluto</h2>
 					<p><span class="weight"></span> kg</p>
@@ -169,7 +152,31 @@
 		</div>
 
 		<div id="grid" class="hide">
-			<h1>Interstellar Scaler</h1>
+			<div class="main-tile">
+				<h1>Interstellar Scaler</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non ultricies tortor. Donec vel nisl blandit, scelerisque eros sed, vulputate dolor. Praesent sodales eget magna non commodo. Mauris cursus sollicitudin est, non commodo turpis rhoncus at. Quisque erat eros</p>
+
+				<h3>Share this site!</h3>
+				<a href="https://www.facebook.com/dialog/feed?app_id=1557774461155978
+					&display=popup&caption=Find%20out%20what%20you%20weigh%20on%20other%20planets! 
+					&link=https%3A%2F%2Fericcornelissen.github.io%2FInterstellarScaler%2F
+					&redirect_uri=https://ericcornelissen.github.io/InterstellarScaler/
+					&picture=http://i.imgur.com/kkZ9WcH.png" class="share" target="_blank">Share</a>
+				<a href="//www.reddit.com/submit" class="share" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false">Reddit this</a>
+				<a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fbit.ly%2F1Cas5as&text=Check%20out%20this%20cool%20Interstellar%20Scaler!" class="share">Tweet</a>
+			</div>
+			<div class="tile" onclick="_setPlanets(1); _toggleGrid();"><p>Sun</p></div>
+			<div class="tile" onclick="_setPlanets(2); _toggleGrid();"><p>Mercury</p></div>
+			<div class="tile" onclick="_setPlanets(3); _toggleGrid();"><p>Venus</p></div>
+			<div class="tile" onclick="_setPlanets(4); _toggleGrid();"><p>Earth</p></div>
+			<div class="tile" onclick="_setPlanets(5); _toggleGrid();"><p>Moon</p></div>
+			<div class="tile" onclick="_setPlanets(6); _toggleGrid();"><p>Mars</p></div>
+			<div class="tile" onclick="_setPlanets(7); _toggleGrid();"><p>Ceres</p></div>
+			<div class="tile" onclick="_setPlanets(8); _toggleGrid();"><p>Jupiter</p></div>
+			<div class="tile" onclick="_setPlanets(9); _toggleGrid();"><p>Saturn</p></div>
+			<div class="tile" onclick="_setPlanets(10); _toggleGrid();"><p>Uranus</p></div>
+			<div class="tile" onclick="_setPlanets(11); _toggleGrid();"><p>Neptune</p></div>
+			<div class="tile" onclick="_setPlanets(12); _toggleGrid();"><p>Pluto</p></div>
 		</div>
 	</body>
 </html>
