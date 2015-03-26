@@ -2,7 +2,6 @@ var __IS_cur_planetID = 4; // Earth
 var __IS_cur_page = 0;
 
 $(document).ready(function() {
-	_setWeigth();
 	$("body").on("DOMMouseScroll mousewheel", function (event) {
 		if (__IS_cur_page == 1) {
 			if (event.originalEvent.detail > 0 || event.originalEvent.wheelDelta < 0 ) {
