@@ -7,15 +7,23 @@ html, body {
 	background-image: url("rescources/background.jpg");
 	background-repeat: repeat-y;
 	background-size: 100% 100%;
-
 	height: 100%;
 	min-height: 520px;
 	min-width: 1100px;
 	width: 100%;
 }
 
+h1, h2, h3 {
+	color: #FFF;
+	font-family: "Hind";
+	line-height: 1em;
+}
+p, a, li {
+	color: #FFF;
+	font-family: "Noto Sans";
+	line-height: 1.3em;
+}
 
-/* Miscellaneous */
 .deselect {
 	cursor:default;
 	-moz-user-select: none;
@@ -33,18 +41,6 @@ html, body {
 }
 
 
-/* Text */
-h1, h2, h3 {
-	color: #FFF;
-	font-family: "Hind";
-	line-height: 1em;
-}
-p, a, li {
-	color: #FFF;
-	font-family: "Noto Sans";
-	line-height: 1em;
-}
-
 /* Intro */
 #intro {
 	left: 50%;
@@ -54,7 +50,7 @@ p, a, li {
 	width: 400px;
 	z-index: 100;
 
-	transition: opacity .2s;
+	transition: all .2s;
 }
 	#intro h1 {
 		font-size: 48px;
@@ -72,7 +68,7 @@ p, a, li {
 		padding: 3px 5px;
 		width: 295px;
 	}
-	#weight.error {
+	#intro input[type="text"].error {
 		color: #FF0033;
 	}
 	#intro input[type="submit"] {
@@ -179,45 +175,38 @@ nav {
 	.next { top: 100%; opacity: 0; }
 
 /* User interface, Grid */
-#grid {
+#menu {
 	background-color: #FFF;
-	height: 100%;
+	margin: 0 auto 0 auto;
+	padding: 0 50px;
+	max-width: 500px;
 	overflow: auto;
-	padding: 0 0 0 80px;
-	width: calc(100% - 80px);
+	width: 100%;
 
 	transition: opacity .2s;
 }
-.main-tile {
-	display: block;
-	float: left;
-	height: 49%;
-	min-height: 225px;
-	min-width: 400px;
-	width: 50%;
-}
-	.main-tile h1 {
+	#menu h1, #menu h3, #menu p, #menu a {
 		color: #000;
-		padding: 40px 0 0 0;
-		text-align: center;
-		width: 100%;
-	}
-	.main-tile h3 {
-		color: #000;
-		width: 100%;
-		text-align: center;
-	}
-	.main-tile p {
-		color: #000;
-		line-height: 1.3em;
-		padding: 10px 50px 20px 50px;
-	}
-	.main-tile a {
-		color: #777;
 		text-decoration: none;
 	}
+
+.main-tile {
+	height: 240px;
+	padding-top: 40px;
+	width: 100%;
+}
+	.main-tile h1, .main-tile h3 {
+		text-align: center;
+		width: 100%;
+	}
+	.main-tile p {
+		padding: 10px 0 20px 0;
+	}
+	.main-tile a {
+		opacity: .6;
+	}
 	.main-tile a:hover {
-		color: #000;
+		opacity: 1;
 	}
 	#share {
 		width: 260px;
@@ -229,10 +218,6 @@ nav {
 		margin: 0 10px 0 0;
 		opacity: .6;
 	}
-	#share a {
-		color: #777;
-		text-decoration: none;
-	}
 	#share div img {
 		height: 13px;
 		width: 13px;
@@ -240,40 +225,29 @@ nav {
 	#share div:hover {
 		opacity: 1;
 	}
+
 .tile {
+	border-top: 1px solid #444;
 	cursor: pointer;
 	display: block;
-	float: left;
-	height: 25%;
-	min-height: 125px;
-	min-width: 200px;
-	opacity: .5;
-	position: relative;
-	width: 25%;
+	height: 30px;
+	opacity: .8;
+	padding: 3px 10px 0 10px;
+	width: 96%;
 
 	transition: opacity .1s;
 }
 	.tile:hover {
 		opacity: 1;
 	}
-	.tile p {
-		color: #000;
-		height: 100%;
-		position: absolute;
-		text-align: center;
-		vertical-align: middle;
-		top: 0;
-		width: 100%;
-	}
-	.tile .image {
+	.tile img {
 		display: inline-block;
-		overflow: hidden;
-		position: relative;
-		max-height: 100%;
+		height: 24px;
+		width: 24px;
 	}
-	.tile .image img {
-		pointer-events: none;
-		position: relative;
-
-		transform: translate(-50%, -10%);
+	.tile p {
+		display: inline-block;
+		font-size: 22px;
+		padding: 0 0 0 5px;
+		position: absolute;
 	}
