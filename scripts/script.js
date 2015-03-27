@@ -15,15 +15,15 @@ $(document).ready(function() {
 
 function _toggleGrid() {
 	if (__IS_cur_page == 1) {
-		$('#planets').addClass('hide');
-		$('#grid').removeClass('hide');
-		$('ul li.up').addClass('disabled');
-		$('ul li.down').addClass('disabled');
+		$("#planets").addClass("hide");
+		$("#menu").removeClass("hide");
+		$("ul li.up").addClass("disabled");
+		$("ul li.down").addClass("disabled");
 
 		__IS_cur_page = 2;
 	} else {
 		$("#planets").removeClass("hide");
-		$("#grid").addClass("hide");
+		$("#menu").addClass("hide");
 		if (__IS_cur_planetID != 1) {
 			$("ul li.up").removeClass("disabled");
 		}
