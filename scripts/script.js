@@ -1,13 +1,17 @@
 var __IS_cur_planetID = 4; // Earth
-var __IS_cur_page = 0;
+var __IS_cur_page = 0; // 0 = Intro; 1 = Planets; 2 = List
 
 $(document).ready(function() {
+	// Use the enter key to select your weight in the intro screen
+	$("#weight").keypress(function() { if (event.which == 13) { _setWeigth(); } });
+
+	// Scroll through planets when the users scrolls over the page
 	$("body").on("DOMMouseScroll mousewheel", function (event) {
 		if (__IS_cur_page == 1) {
 			if (event.originalEvent.detail > 0 || event.originalEvent.wheelDelta < 0 ) {
-				_Next()
+				_Next();
 			} else {
-				_Prev()
+				_Prev();
 			}
 		}
 	});
@@ -36,32 +40,32 @@ function _toggleGrid() {
 }
 
 function _setWeigth() {
-	var original = parseInt(document.getElementById('weight').value);
-	if (isNaN(original) == false) { // 'original' is NaN when it contains letters
-		$("#sun .weight").text(_IS_convertWeight(original, __IS_acc_Earth, __IS_acc_Sun));
-		$("#mercury .weight").text(_IS_convertWeight(original, __IS_acc_Earth, __IS_acc_Mercury));
-		$("#venus .weight").text(_IS_convertWeight(original, __IS_acc_Earth, __IS_acc_Venus));
-		$("#earth .weight").text(original);
-		$("#moon .weight").text(_IS_convertWeight(original, __IS_acc_Earth, __IS_acc_Moon));
-		$("#mars .weight").text(_IS_convertWeight(original, __IS_acc_Earth, __IS_acc_Mars));
-		$("#ceres .weight").text(_IS_convertWeight(original, __IS_acc_Earth, __IS_acc_Ceres));
-		$("#jupiter .weight").text(_IS_convertWeight(original, __IS_acc_Earth, __IS_acc_Jupiter));
-		$("#saturn .weight").text(_IS_convertWeight(original, __IS_acc_Earth, __IS_acc_Saturn));
-		$("#uranus .weight").text(_IS_convertWeight(original, __IS_acc_Earth, __IS_acc_Uranus));
-		$("#neptune .weight").text(_IS_convertWeight(original, __IS_acc_Earth, __IS_acc_Neptune));
-		$("#pluto .weight").text(_IS_convertWeight(original, __IS_acc_Earth, __IS_acc_Pluto));
+	var iWeight = parseInt(document.getElementById("weight").value);
+	if (isNaN(iWeight) == false) { // 'iWeight' is NaN when the value is invalid
+		$("#sun .weight").text(_IS_convertWeight(iWeight, "earth", "sun"));
+		$("#mercury .weight").text(_IS_convertWeight(iWeight, "earth", "mercury"));
+		$("#venus .weight").text(_IS_convertWeight(iWeight, "earth", "venus"));
+		$("#earth .weight").text(iWeight);
+		$("#moon .weight").text(_IS_convertWeight(iWeight, "earth", "moon"));
+		$("#mars .weight").text(_IS_convertWeight(iWeight, "earth", "mars"));
+		$("#ceres .weight").text(_IS_convertWeight(iWeight, "earth", "ceres"));
+		$("#jupiter .weight").text(_IS_convertWeight(iWeight, "earth", "jupiter"));
+		$("#saturn .weight").text(_IS_convertWeight(iWeight, "earth", "saturn"));
+		$("#uranus .weight").text(_IS_convertWeight(iWeight, "earth", "uranus"));
+		$("#neptune .weight").text(_IS_convertWeight(iWeight, "earth", "neptune"));
+		$("#pluto .weight").text(_IS_convertWeight(iWeight, "earth", "pluto"));
 
 		$("ul li.up").removeClass("disabled");
 		$("ul li.down").removeClass("disabled");
 		$("ul li.grid").removeClass("disabled");
 
-
 		$("#intro").addClass("hide");
+		$("#earth").removeClass("intro-hide");
 		$("#earth .planet-info").removeClass("hide");
 
 		__IS_cur_page = 1;
 	} else {
-		$("#weight").addClass("error");
+		$("#weight").addClass("error"); // Make the text of the input red
 	}
 }
 function _setPlanets(ID) {

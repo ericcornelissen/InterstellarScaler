@@ -7,9 +7,9 @@ html, body {
 	background-image: url("rescources/background.jpg");
 	background-repeat: repeat-y;
 	background-size: 100% 100%;
+	min-height: 165px;
+	min-width: 400px;
 	height: 100%;
-	min-height: 520px;
-	min-width: 1100px;
 	width: 100%;
 }
 
@@ -41,6 +41,34 @@ p, a, li {
 }
 
 
+/* Navigation */
+nav {
+	margin: 15px 0 0 15px;
+	position: absolute;
+	z-index: 99;
+}
+	nav ul {
+		list-style-type: none;
+	}
+	nav ul li {
+		margin-bottom: 2px;
+
+		transition: opacity .2s;
+	}
+	nav ul li.disabled {
+		opacity: 0.4;
+		pointer-events: none;
+	}
+	nav svg {
+		cursor: pointer;
+		height: 40px;
+		width: 40px;
+	}
+	nav svg circle { transition: opacity .2s; }
+	nav svg path { transition: fill .2s; }
+	nav svg:hover circle { opacity: 0; }
+	nav svg:hover path { fill: #FFF; }
+
 /* Intro */
 #intro {
 	left: 50%;
@@ -58,7 +86,6 @@ p, a, li {
 	}
 	#intro p {
 		font-size: 14px;
-		line-height: 1.3em;
 		margin: 10px 0 10px 0;
 	}
 	#intro input[type="text"] {
@@ -86,43 +113,11 @@ p, a, li {
 		color: #FFF;
 	}
 
-/* Navigation */
-nav {
-	margin: 15px 0 0 15px;
-	position: fixed;
-	z-index: 99;
-}
-	nav ul {
-		list-style-type: none;
-	}
-	nav ul li {
-		margin: 0 0 2px 0;
-
-		transition: opacity .2s;
-	}
-	nav ul li.disabled {
-		opacity: 0.4;
-		pointer-events: none;
-	}
-	nav svg {
-		cursor: pointer;
-		height: 40px;
-		width: 40px;
-	}
-	nav svg circle { transition: opacity .2s; }
-	nav svg path { transition: fill .2s; }
-	nav svg:hover circle {
-		opacity: 0;
-	}
-	nav svg:hover path {
-		fill: #FFF;
-	}
-
 /* User interface, Planets */
 #planets {
 	height: 100%;
-	min-height: 520px;
-	min-width: 1100px;
+	min-height: 165px;
+	min-width: 350px;
 	overflow: hidden;
 	position: absolute;
 	width: 100%;
@@ -137,7 +132,6 @@ nav {
 		transition: all 1s;
 	}
 	#planets .image {
-		min-width: 600px;
 		position: relative;
 		width: 50%;
 	}
@@ -148,15 +142,15 @@ nav {
 
 		transform: translate(-50%, -50%);
 	}
-		#planets img.big { left: calc(100% - 700px); }
-		#planets img.medium { left: calc(100% - 450px); }
+		#planets img.star { left: calc(100% - 700px); }
+		#planets img.big { left: calc(100% - 600px); }
+		#planets img.medium { left: calc(100% - 400px); }
 		#planets img.small { left: 50%; }
 	#planets .planet-info {
 		display: inline-block;
-		left: 50%;
+		left: 55%;
 		height: 60px;
 		top: calc(50% - 30px);
-		width: 50%;
 
 		transition: opacity .5s;
 	}
@@ -174,14 +168,16 @@ nav {
 	.current { top: 0px; opacity: 1; }
 	.next { top: 100%; opacity: 0; }
 
-/* User interface, Grid */
+/* User interface, Menu */
 #menu {
 	background-color: #FFF;
+	height: 100%;
 	margin: 0 auto 0 auto;
-	padding: 0 50px;
-	max-width: 500px;
+	max-width: 590px;
+	min-width: 230px;
 	overflow: auto;
-	width: 100%;
+	padding: 0 60px;
+	width: calc(100% - 120px);
 
 	transition: opacity .2s;
 }
@@ -189,10 +185,9 @@ nav {
 		color: #000;
 		text-decoration: none;
 	}
-
 .main-tile {
-	height: 240px;
-	padding-top: 40px;
+	display: block;
+	padding: 40px 0 20px;
 	width: 100%;
 }
 	.main-tile h1, .main-tile h3 {
@@ -225,7 +220,6 @@ nav {
 	#share div:hover {
 		opacity: 1;
 	}
-
 .tile {
 	border-top: 1px solid #444;
 	cursor: pointer;
@@ -233,6 +227,7 @@ nav {
 	height: 30px;
 	opacity: .8;
 	padding: 3px 10px 0 10px;
+	position: relative;
 	width: 96%;
 
 	transition: opacity .1s;
@@ -241,9 +236,7 @@ nav {
 		opacity: 1;
 	}
 	.tile img {
-		display: inline-block;
-		height: 24px;
-		width: 24px;
+		padding: 0 9px;
 	}
 	.tile p {
 		display: inline-block;
@@ -251,3 +244,12 @@ nav {
 		padding: 0 0 0 5px;
 		position: absolute;
 	}
+
+/* Small screen customization */
+@media all and (max-width: 1050px) {
+	#intro { left: calc(50% - 200px); }
+	#earth.intro-hide { opacity: 0; visibility: hidden; }
+}
+@media all and (max-width: 400px) {
+	#intro { left: 0; }
+}
