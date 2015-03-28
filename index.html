@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 
+<!-- A webapplication by Eric Cornelissen, 2015 -->
+
 <html>
 	<head>
 		<title>Interstellar Scaler</title>
@@ -59,13 +61,13 @@
 		<div id="intro">
 			<h1>Interstellar Scaler</h1>
 			<p>Dear earthling! Welcome to the Interstellar Scaler, with this machine you can find out what you'll weigh on other planets in your solar system (and the sun and pluto). Simply provide your weight on earth below and explore your solar system!</p>
-			<input id="weight" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="What do you weigh?"></input>
+			<input id="weight" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="What do you weigh?" autofocus></input>
 			<input type="submit" value="Explore!" onclick="_setWeigth();"/>
 		</div>
 
 		<div id="planets" class="deselect">
 			<div id="sun" class="prev">
-				<div class="image"><img class="big" src="rescources/planets/sun.png"></div>
+				<div class="image"><img class="star" src="rescources/planets/sun.png"></div>
 				<div class="planet-info">
 					<h2>Sun</h2>
 					<p><span class="weight"></span> kg</p>
@@ -85,7 +87,7 @@
 					<p><span class="weight"></span> kg</p>
 				</div>
 			</div>
-			<div id="earth" class="current">
+			<div id="earth" class="current intro-hide">
 				<div class="image"><img class="small" src="rescources/planets/earth.png"></div>
 				<div class="planet-info hide">
 					<h2>Earth</h2>
@@ -153,7 +155,7 @@
 		<div id="menu" class="hide">
 			<div class="main-tile">
 				<h1>Interstellar Scaler</h1>
-				<p>This project by <a href="https://github.com/ericcornelissen" target="_blank">Eric Cornelissen</a> is a simple web app that you can use to find out what you'll weigh on another planet! Feel free to use it for whatever you want and enjoy your stay on this site. If you're a geek like me, you can check out the source code on <a href="https://github.com/ericcornelissen/InterstellarScaler" target="_blank">Github</a>.</p>
+				<p>This project by <a href="https://github.com/ericcornelissen" target="_blank">Eric Cornelissen</a> is a simple web app that you can use to find out what you'll weigh on another planet! Feel free to use it for whatever you want and enjoy your stay on this site. And if you're a geek like me, you can also check out the source code on <a href="https://github.com/ericcornelissen/InterstellarScaler" target="_blank">Github</a>.</p>
 
 				<h3>Share this site!</h3>
 				<div id="share">
@@ -208,7 +210,7 @@
 				<p>Jupiter</p>
 			</div>
 			<div class="tile" onclick="_toggleGrid(); _setPlanets(9);">
-				<img src="rescources/icons/saturn.png">
+				<img src="rescources/icons/saturn.png" style="padding: 0;">
 				<p>Saturn</p>
 			</div>
 			<div class="tile" onclick="_toggleGrid(); _setPlanets(10);">
