@@ -5,6 +5,7 @@
 <html>
 	<head>
 		<title>Interstellar Scaler</title>
+		<link rel="shortcut icon" type="image/x-icon" href="rescources/icons/favicon.png">
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script type="text/javascript" src="scripts/interstellarScaler.js"></script>
@@ -15,7 +16,7 @@
 	<body>
 		<nav>
 			<ul>
-				<li class="up disabled" onclick="_Prev();">
+				<li class="up disable">
 					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
 						<g enable-background="new">
 							<circle fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" cx="19.994" cy="20.001" r="20.004"></circle>
@@ -30,7 +31,7 @@
 						</g>
 					</svg>
 				</li>
-				<li class="down disabled" onclick="_Next();">
+				<li class="down disable">
 					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
 						<g enable-background="new">
 							<circle fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" cx="19.994" cy="20.001" r="20.004"></circle>
@@ -45,7 +46,7 @@
 						</g>
 					</svg>
 				</li>
-				<li class="grid disabled" onclick="_toggleGrid();">
+				<li class="grid disable">
 					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
 						<g enable-background="new">
 							<circle fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" cx="19.994" cy="20.001" r="20.004"></circle>
@@ -61,8 +62,9 @@
 		<div id="intro">
 			<h1>Interstellar Scaler</h1>
 			<p>Dear earthling! Welcome to the Interstellar Scaler, with this machine you can find out what you'll weigh on other planets in your solar system (and the sun and pluto). Simply provide your weight on earth below and explore your solar system!</p>
-			<input id="weight" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="What do you weigh?" autofocus></input>
-			<input type="submit" value="Explore!" onclick="_setWeigth();"/>
+
+			<input id="weight" type="text" placeholder="What do you weigh?" autofocus>
+			<input id="explore" type="submit" value="Explore!">
 		</div>
 
 		<div id="planets" class="deselect">
@@ -71,6 +73,9 @@
 				<div class="planet-info">
 					<h2>Sun</h2>
 					<p><span class="weight"></span> kg</p>
+
+					<input class="input hide" type="text" placeholder="What do you weigh?">
+					<input class="go hide" type="submit" value="Go!">
 				</div>
 			</div>
 			<div id="mercury" class="prev">
@@ -78,6 +83,9 @@
 				<div class="planet-info">
 					<h2>Mercury</h2>
 					<p><span class="weight"></span> kg</p>
+
+					<input class="input hide" type="text" placeholder="What do you weigh?">
+					<input class="go hide" type="submit" value="Go!">
 				</div>
 			</div>
 			<div id="venus" class="prev">
@@ -85,6 +93,9 @@
 				<div class="planet-info">
 					<h2>Venus</h2>
 					<p><span class="weight"></span> kg</p>
+
+					<input class="input hide" type="text" placeholder="What do you weigh?">
+					<input class="go hide" type="submit" value="Go!">
 				</div>
 			</div>
 			<div id="earth" class="current intro-hide">
@@ -92,6 +103,9 @@
 				<div class="planet-info hide">
 					<h2>Earth</h2>
 					<p><span class="weight">55</span> kg</p>
+
+					<input class="input hide" type="text" placeholder="What do you weigh?">
+					<input class="go hide" type="submit" value="Go!">
 				</div>
 			</div>
 			<div id="moon" class="next">
@@ -99,6 +113,9 @@
 				<div class="planet-info">
 					<h2>Moon</h2>
 					<p><span class="weight"></span> kg</p>
+
+					<input class="input hide" type="text" placeholder="What do you weigh?">
+					<input class="go hide" type="submit" value="Go!">
 				</div>
 			</div>
 			<div id="mars" class="next">
@@ -106,6 +123,9 @@
 				<div class="planet-info">
 					<h2>Mars</h2>
 					<p><span class="weight"></span> kg</p>
+
+					<input class="input hide" type="text" placeholder="What do you weigh?">
+					<input class="go hide" type="submit" value="Go!">
 				</div>
 			</div>
 			<div id="ceres" class="next">
@@ -113,6 +133,9 @@
 				<div class="planet-info">
 					<h2>Ceres</h2>
 					<p><span class="weight"></span> kg</p>
+
+					<input class="input hide" type="text" placeholder="What do you weigh?">
+					<input class="go hide" type="submit" value="Go!">
 				</div>
 			</div>
 			<div id="jupiter" class="next">
@@ -120,6 +143,9 @@
 				<div class="planet-info">
 					<h2>Jupiter</h2>
 					<p><span class="weight"></span> kg</p>
+
+					<input class="input hide" type="text" placeholder="What do you weigh?">
+					<input class="go hide" type="submit" value="Go!">
 				</div>
 			</div>
 			<div id="saturn" class="next">
@@ -127,6 +153,9 @@
 				<div class="planet-info">
 					<h2>Saturn</h2>
 					<p><span class="weight"></span> kg</p>
+
+					<input class="input hide" type="text" placeholder="What do you weigh?">
+					<input class="go hide" type="submit" value="Go!">
 				</div>
 			</div>
 			<div id="uranus" class="next">
@@ -134,6 +163,9 @@
 				<div class="planet-info">
 					<h2>Uranus</h2>
 					<p><span class="weight"></span> kg</p>
+
+					<input class="input hide" type="text" placeholder="What do you weigh?">
+					<input class="go hide" type="submit" value="Go!">
 				</div>
 			</div>
 			<div id="neptune" class="next">
@@ -141,6 +173,9 @@
 				<div class="planet-info">
 					<h2>Neptune</h2>
 					<p><span class="weight"></span> kg</p>
+
+					<input class="input hide" type="text" placeholder="What do you weigh?">
+					<input class="go hide" type="submit" value="Go!">
 				</div>
 			</div>
 			<div id="pluto" class="next">
@@ -148,80 +183,82 @@
 				<div class="planet-info">
 					<h2>Pluto</h2>
 					<p><span class="weight"></span> kg</p>
+
+					<input class="input hide" type="text" placeholder="What do you weigh?">
+					<input class="go hide" type="submit" value="Go!">
 				</div>
 			</div>
 		</div>
 
 		<div id="menu" class="hide">
 			<div class="main-tile">
+				<img id="btt-info" class="disable" src="rescources/icons/info.png">
+				<img id="btt-science" src="rescources/icons/science.png">
+
 				<h1>Interstellar Scaler</h1>
-				<p>This project by <a href="https://github.com/ericcornelissen" target="_blank">Eric Cornelissen</a> is a simple web app that you can use to find out what you'll weigh on another planet! Feel free to use it for whatever you want and enjoy your stay on this site. And if you're a geek like me, you can also check out the source code on <a href="https://github.com/ericcornelissen/InterstellarScaler" target="_blank">Github</a>.</p>
+				<div id="info" class="info">
+					<p>This project by <a href="https://github.com/ericcornelissen" target="_blank">Eric Cornelissen</a> is a simple web app that you can use to find out what you'll weigh on another planet! Feel free to use it for whatever you want and enjoy your stay on this site. And if you're a geek like me, you can also check out the source code on <a href="https://github.com/ericcornelissen/InterstellarScaler" target="_blank">Github</a>.</p>
+				</div>
+				<div id="science" class="info hide">
+					<p>For all the science people (and those who are interested), I know that your mass does not actually change... The thing that changes when you go to a different planet is de amount of force pulling you towards the ground. This phenomenon is used by a balance to show you what you weigh. So, the amount of force changes and your mass stays the same.</p>
+				</div>
 
 				<h3>Share this site!</h3>
 				<div id="share">
-					<div class="share">
-						<img src="rescources/icons/facebook.png"/>
-						<a href="https://www.facebook.com/dialog/feed?app_id=1557774461155978
-							&display=popup&caption=Find%20out%20what%20you%20weigh%20on%20other%20planets! 
-							&link=https%3A%2F%2Fericcornelissen.github.io%2FInterstellarScaler%2F
-							&redirect_uri=https://ericcornelissen.github.io/InterstellarScaler/
-							&picture=http://i.imgur.com/kkZ9WcH.png" class="share" target="_blank">Share</a>
-					</div>
-					<div class="share">
-						<img src="rescources/icons/twitter.png"/>
-						<a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fbit.ly%2F1Cas5as&text=Check%20out%20this%20cool%20Interstellar%20Scaler!" class="share" target="_blank">Tweet</a>
-					</div>
-					<div class="share">
-						<img src="rescources/icons/reddit.png"/>
-						<a href="//www.reddit.com/submit" class="share" onclick="window.location = '//www.reddit.com/submit?url=https://ericcornelissen.github.io/InterstellarScaler/'; return false">Reddit this</a>
-					</div>
+					<a href="https://www.facebook.com/dialog/feed?app_id=1557774461155978
+						&display=popup&caption=Find%20out%20what%20you%20weigh%20on%20other%20planets! 
+						&link=https%3A%2F%2Fericcornelissen.github.io%2FInterstellarScaler%2F
+						&redirect_uri=https://ericcornelissen.github.io/InterstellarScaler/
+						&picture=http://i.imgur.com/kkZ9WcH.png" class="share" target="_blank"><img src="rescources/icons/facebook.png"/> Share</a>
+					<a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fbit.ly%2F1Cas5as&text=Check%20out%20this%20cool%20Interstellar%20Scaler!" class="share" target="_blank"><img src="rescources/icons/twitter.png"/> Tweet</a>
+					<a href="//www.reddit.com/submit" class="share" onclick="window.location = '//www.reddit.com/submit?url=https://ericcornelissen.github.io/InterstellarScaler/'; return false"><img src="rescources/icons/reddit.png"/> Reddit this</a>
 				</div>
 			</div>
-			<div class="tile" onclick="_toggleGrid(); _setPlanets(1);" style="border-top: 0;">
+			<div id="1" class="tile" style="border-top: 0;">
 				<img src="rescources/icons/sun.png">
 				<p>Sun</p>
 			</div>
-			<div class="tile" onclick="_toggleGrid(); _setPlanets(2);">
+			<div id="2" class="tile">
 				<img src="rescources/icons/mercury.png">
 				<p>Mercury</p>
 			</div>
-			<div class="tile" onclick="_toggleGrid(); _setPlanets(3);">
+			<div id="3" class="tile">
 				<img src="rescources/icons/venus.png">
 				<p>Venus</p>
 			</div>
-			<div class="tile" onclick="_toggleGrid(); _setPlanets(4);">
+			<div id="4" class="tile">
 				<img src="rescources/icons/earth.png">
 				<p>Earth</p>
 			</div>
-			<div class="tile" onclick="_toggleGrid(); _setPlanets(5);">
+			<div id="5" class="tile">
 				<img src="rescources/icons/moon.png">
 				<p>Moon</p>
 			</div>
-			<div class="tile" onclick="_toggleGrid(); _setPlanets(6);">
+			<div id="6" class="tile">
 				<img src="rescources/icons/mars.png">
 				<p>Mars</p>
 			</div>
-			<div class="tile" onclick="_toggleGrid(); _setPlanets(7);">
+			<div id="7" class="tile">
 				<img src="rescources/icons/ceres.png">
 				<p>Ceres</p>
 			</div>
-			<div class="tile" onclick="_toggleGrid(); _setPlanets(8);">
+			<div id="8" class="tile">
 				<img src="rescources/icons/jupiter.png">
 				<p>Jupiter</p>
 			</div>
-			<div class="tile" onclick="_toggleGrid(); _setPlanets(9);">
+			<div id="9" class="tile">
 				<img src="rescources/icons/saturn.png" style="padding: 0;">
 				<p>Saturn</p>
 			</div>
-			<div class="tile" onclick="_toggleGrid(); _setPlanets(10);">
+			<div id="10" class="tile">
 				<img src="rescources/icons/uranus.png">
 				<p>Uranus</p>
 			</div>
-			<div class="tile" onclick="_toggleGrid(); _setPlanets(11);">
+			<div id="11" class="tile">
 				<img src="rescources/icons/neptune.png">
 				<p>Neptune</p>
 			</div>
-			<div class="tile" onclick="_toggleGrid(); _setPlanets(12);" style="margin-bottom: 30px;">
+			<div id="12" class="tile" style="margin-bottom: 30px;">
 				<img src="rescources/icons/pluto.png">
 				<p>Pluto</p>
 			</div>
