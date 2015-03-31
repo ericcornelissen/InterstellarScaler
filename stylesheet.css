@@ -24,6 +24,30 @@ p, a, li {
 	line-height: 1.3em;
 }
 
+input[type="text"] {
+	border-radius: 4px;
+	font-family: "Noto Sans";
+	padding: 3px 5px;
+}
+input[type="text"].error {
+	color: #FF0033;
+}
+input[type="submit"] {
+	background-color: #FFF;
+	border: 1px solid #FFF;
+	border-radius: 4px;
+	cursor: pointer;
+	font-family: "Noto Sans";
+	margin: 2px;
+	padding: 2px;
+	width: 80px;
+}
+input[type="submit"]:hover {
+	background-color: transparent;
+	color: #FFF;
+}
+
+
 .deselect {
 	cursor:default;
 	-moz-user-select: none;
@@ -38,6 +62,9 @@ p, a, li {
 .hide {
 	opacity: 0;
 	visibility: hidden;
+}
+.disable {
+	pointer-events: none;
 }
 
 
@@ -55,9 +82,8 @@ nav {
 
 		transition: opacity .2s;
 	}
-	nav ul li.disabled {
+	nav ul li.disable {
 		opacity: 0.4;
-		pointer-events: none;
 	}
 	nav svg {
 		cursor: pointer;
@@ -89,28 +115,11 @@ nav {
 		margin: 10px 0 10px 0;
 	}
 	#intro input[type="text"] {
-		border-radius: 4px;
-		font-family: "Noto Sans";
 		margin: 10px 0 0 0;
-		padding: 3px 5px;
 		width: 295px;
 	}
-	#intro input[type="text"].error {
-		color: #FF0033;
-	}
 	#intro input[type="submit"] {
-		background-color: #FFF;
-		border: 1px solid #FFF;
-		border-radius: 4px;
-		cursor: pointer;
-		font-family: "Noto Sans";
-		margin: 2px;
-		padding: 2px;
 		width: 80px;
-	}
-	#intro input[type="submit"]:hover {
-		background-color: transparent;
-		color: #FFF;
 	}
 
 /* User interface, Planets */
@@ -136,6 +145,7 @@ nav {
 		width: 50%;
 	}
 	#planets .image img {
+		cursor: pointer;
 		position: relative;
 		pointer-events: none;
 		top: 50%;
@@ -146,7 +156,7 @@ nav {
 		#planets img.big { left: calc(100% - 600px); }
 		#planets img.medium { left: calc(100% - 400px); }
 		#planets img.small { left: 50%; }
-	#planets .planet-info {
+	.planet-info {
 		display: inline-block;
 		left: 55%;
 		height: 60px;
@@ -154,13 +164,18 @@ nav {
 
 		transition: opacity .5s;
 	}
-	#planets .planet-info h2 {
+	.planet-info h2 {
+		cursor: pointer;
 		font-size: 44px;
 		height: 40px;
 	}
-	#planets .planet-info p {
+	.planet-info p {
+		cursor: pointer;
 		font-size: 20px;
 		height: 20px;
+	}
+	.planet-info input.hide, .planet-info p.hide {
+		display: none;
 	}
 
 	/* previous, current, next */
@@ -194,30 +209,37 @@ nav {
 		text-align: center;
 		width: 100%;
 	}
-	.main-tile p {
+	.main-tile .info {
 		padding: 10px 0 20px 0;
 	}
-	.main-tile a {
+	.main-tile .info.hide {
+		display: none;
+	}
+	.main-tile img {
+		cursor: pointer;
+		height: 14px;
+		width: 14px;
+	}
+	.main-tile p a, .main-tile > img {
 		opacity: .6;
 	}
-	.main-tile a:hover {
+	.main-tile p a:hover, .main-tile > img:hover {
 		opacity: 1;
 	}
 	#share {
 		width: 260px;
 		margin: 10px auto 0 auto;
 	}
-	#share div {
-		cursor: pointer;
+	#share a {
 		display: inline-block;
 		margin: 0 10px 0 0;
 		opacity: .6;
 	}
-	#share div img {
+	#share a img {
 		height: 13px;
 		width: 13px;
 	}
-	#share div:hover {
+	#share a:hover {
 		opacity: 1;
 	}
 .tile {
