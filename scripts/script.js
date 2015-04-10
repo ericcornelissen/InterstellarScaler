@@ -1,8 +1,14 @@
 var __IS_cur_planetID = 4; // Earth
 var __IS_cur_page = 0; // 0 = Intro; 1 = Planets; 2 = List
+var __IS_cur_units = 1;
 var __IS_planetNames = new Array(12, "sun", "mercury", "venus", "earth", "moon", "mars", "ceres", "jupiter", "saturn", "uranus", "neptune", "pluto");
 
 $(document).ready(function() {
+	// Set pounds if the country uses the imperial system
+	var req = new XMLHttpRequest(); req.open('POST', 'http://api.hostip.info/country.php', true); req.send();
+	req.onreadystatechange = function() { if(req.readyState == 4 && req.status == 200 && req.response == 'US') { $('.units').text('lb'); $('#unit-sys').text('switch to metric'); __IS_cur_units = 0; } }
+
+
 	// Listeners
 	$('input').keypress(function() { return event.charCode == 46 || event.charCode >= 48 && event.charCode <= 57; });
 
@@ -43,6 +49,17 @@ $(document).ready(function() {
 	$('#btt-science').click(function(){
 		$('#info').addClass('hide'); $('#science').removeClass('hide');
 		$('#btt-science').addClass('disable'); $('#btt-info').removeClass('disable');
+	});
+	$('#unit-sys').click(function(){
+		if(__IS_cur_units == 1) {
+			__IS_cur_units = 0;
+			$('.units').text('lb');
+			$('#unit-sys').text('switch to metric');
+		} else {
+			__IS_cur_units = 1;
+			$('.units').text('kg');
+			$('#unit-sys').text('switch to imperial');
+		}
 	});
 
 	$('.tile').click(function(e) { _toggleGrid(); _setPlanets(parseInt(e.currentTarget.id)); });
